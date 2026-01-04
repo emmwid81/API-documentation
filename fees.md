@@ -12,6 +12,7 @@ Fetch all price lists:
 
 Requires an admin (or customer?) token.
 >GET /fees/all
+
 ```javascript
 const token = localStorage.getItem('token');
 
@@ -64,9 +65,16 @@ Result:
 }
 ```
 Update one or more prices:
->PUT /fees
+>POST /fees
+
 Required parameters:
->fee_id
+
+>fee_id<br>
+start<br>
+minute<br>
+discount<br>
+penalty
+
 JWT token
 
 >Optional parameters:
@@ -79,10 +87,13 @@ penalty
 const token = localStorage.getItem('token');
 const fees = {
     "start": 21,
-    "minute": 2
+    "minute": 2,
+    "discount": 3,
+    "penalty": 9
 }
 const response = await fetch('/api/v1/fees', {
-  method: 'PUT',
+  method: 'POST',
+  body: JSON.stringify(fees),
   headers: {
     'Authorization': `Bearer ${token}`,
     'Content-Type': 'application/json'
@@ -92,29 +103,10 @@ const result = await response.json();
 ```
 
 
-Optional parameters:
->name<br>
-password
-```javascript
-customer = {
-    "password": "drowssap"
-}
-const response = await fetch("http://localhost:3000/api/v1/customers/4", {
-    method: 'PUT',
-    body: JSON.stringify(customer),
-    headers: {
-    'Authorization': `Bearer ${token}`,
-    'content-type': 'application/json'
-    }
-});
-const result = await response.json();
-```
-
-
 Result:
 ```json
 {
     "success": true,
-    "message": "Customer updated"
+    "message": "New fees added"
 }
 ```
