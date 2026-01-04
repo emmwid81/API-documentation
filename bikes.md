@@ -244,8 +244,6 @@ Result:
 Update bike status:
 >PUT /bikes/:id
 
-Requires an admin token (om kund ska kunna flagga problem med cykel kanske det ska lösas på annat sätt?)
-
 Required parameters:
 >bike_id<br>
 JWT token
