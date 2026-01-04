@@ -1,3 +1,6 @@
+title: My Site
+description: My GitHub Pages site
 theme: just-the-docs
+
 markdown: kramdown
 highlighter: rouge

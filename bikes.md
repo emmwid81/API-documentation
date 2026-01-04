@@ -30,7 +30,7 @@ const response = await fetch('/api/v1/bikes', {
 const result = await response.json();
 ```
 Result:
-```
+```json
 [
   {
     "bike_id": 1,
@@ -78,7 +78,7 @@ const response = await fetch('/api/v1/bikes/5', {
 const result = await response.json();
 ```
 Result:
-```
+```json
 {
   "bike_id": 5,
   "city": "Karlskrona",
@@ -107,7 +107,7 @@ const result = await response.json();
 ```
 Result:
 
-```
+```json
 [
     {
         "bike_id": 1,
@@ -154,7 +154,7 @@ const result = await response.json();
 ```
 Result:
 
-```
+```json
 [
     {
         "bike_id": 10,
@@ -213,7 +213,7 @@ const response = await fetch('/api/v1/bikes?city=umeå&status=available', {
 const result = await response.json();
 ```
 Result:
-```
+```json
 [
     {
         "bike_id": 3,
@@ -260,7 +260,7 @@ const response = await fetch(`/api/v1/bikes/:id`, {
     });
 ```
 Result:
-```
+```json
 {
     "success": true,
     "message": "Status updated"

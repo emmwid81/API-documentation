@@ -101,8 +101,7 @@ Required parameters:
 JWT token
 
 Optional parameters:
->email<br>
-name<br>
+>name<br>
 password
 ```javascript
 customer = {
@@ -121,7 +120,7 @@ const result = await response.json();
 
 
 Result:
-```
+```json
 {
     "success": true,
     "message": "Customer updated"

@@ -27,7 +27,7 @@ const response = await fetch("http://localhost:3000/api/v1/auth/register", {
 const result = await response.json();
 ```
 Result:
-```
+```json
 {
     "Token": <JWT with user info>
 }
@@ -52,7 +52,7 @@ const result = await response.json();
 ```
 
 Result:
-```
+```json
 {
     "Token": <JWT with user info>
 }
