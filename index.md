@@ -1,7 +1,7 @@
 # REST API documentation for spark
 
 ## Endpoints:
-1. /auth
+1. [auth](https://emmwid81.github.io/API-documentation/auth)
 2. /bikes
 3. /cities
 4. /customers
