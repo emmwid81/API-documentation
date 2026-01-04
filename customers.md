@@ -30,7 +30,7 @@ const response = await fetch('/api/v1/customers', {
 const result = await response.json();
 ```
 Result:
-```
+```json
 [
   {
     "customer_id": 1,
@@ -79,15 +79,15 @@ const response = await fetch('/api/v1/customers/4', {
 const result = await response.json();
 ```
 Result:
-```
+```json
 {
-  "customer_id": 4,
-  "email": "olof@olof.se",
-  "name": "Olof",
-  "password": "null",
-  "blocked": 0,
-  "oauth_provider": "null",
-  "oauth_provider_id": "null\r"
+    "customer_id": 4,
+    "email": "olof@olof.se",
+    "name": "Olof",
+    "password": "$2a$12$JGen1YG06OfLS7SKjmT4X.KX1a1S0GZQVs/FUsh16IYxUaqhSGJo2",
+    "blocked": 0,
+    "oauth_provider": "null",
+    "oauth_provider_id": "null\r"
 }
 ```
 
