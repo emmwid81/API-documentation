@@ -38,6 +38,7 @@ Fetch one city:
 
 
 >GET /cities/:name
+
 ```javascript
 const token = localStorage.getItem('token');
 
