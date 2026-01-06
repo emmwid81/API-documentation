@@ -1,15 +1,16 @@
 # 3. Cities
 City data that can be fetched from the database:
 
->name
+name
 
 Fetch all cities:
 
 >GET /cities
+
 ```javascript
 const token = localStorage.getItem('token');
 
-const response = await fetch('/api/v1/cities', {
+const response = await fetch('http://localhost:3000/api/v1/cities', {
   method: 'GET',
   headers: {
     'Authorization': `Bearer ${token}`,
@@ -18,8 +19,8 @@ const response = await fetch('/api/v1/cities', {
 });
 const result = await response.json();
 ```
-
 Result:
+
 ```json
 [
   {
@@ -34,11 +35,13 @@ Result:
 ]
 ```
 Fetch one city:
+
+
 >GET /cities/:name
 ```javascript
 const token = localStorage.getItem('token');
 
-const response = await fetch('/api/v1/cities/malmö', {
+const response = await fetch('http://localhost:3000/api/v1/cities/malmö', {
   method: 'GET',
   headers: {
     'Authorization': `Bearer ${token}`,
@@ -48,6 +51,7 @@ const response = await fetch('/api/v1/cities/malmö', {
 const result = await response.json();
 ```
 Result:
+
 ```json
 {
   "name": "Malmö"
