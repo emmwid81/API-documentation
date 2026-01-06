@@ -165,7 +165,7 @@ Void an invoice:
 
 requires admin token or customer token with matching customer id(?)
 
->PUT /invoices/pay/:id
+>PUT /invoices/void/:id
 
 Required parameters:
 
