@@ -10,8 +10,8 @@ penalty<br>
 
 Fetch all price lists:
 
-Requires an admin (or customer?) token.
 >GET /fees/all
+
 
 ```javascript
 const token = localStorage.getItem('token');
@@ -29,18 +29,38 @@ const result = await response.json();
 Result:
 ```json
 [
-  {
-    "fee_id": 1,
-    "updated": "2025-10-01T00:00:00.000Z",
-    "start": 20,
-    "minute": 1,
-    "discount": 10,
-    "penalty": 15
-  }
+    {
+        "fee_id": 1,
+        "updated": "2025-10-01T00:00:00.000Z",
+        "start": 20,
+        "minute": 1,
+        "discount": 10,
+        "penalty": 15
+    },
+    {
+        "fee_id": 2,
+        "updated": "2026-01-14T09:19:35.000Z",
+        "start": 200,
+        "minute": 1,
+        "discount": 10,
+        "penalty": 15
+    },
+    {
+        "fee_id": 3,
+        "updated": "2026-01-14T09:19:49.000Z",
+        "start": 200,
+        "minute": 1,
+        "discount": 10,
+        "penalty": 20
+    }
 ]
 ```
+
 Fetch current price list:
+
 >GET /fees
+
+
 ```javascript
 const token = localStorage.getItem('token');
 
@@ -53,43 +73,41 @@ const response = await fetch('/api/v1/fees', {
 });
 const result = await response.json();
 ```
+
 Result:
+
 ```json
 {
-  "fee_id": 1,
-  "updated": "2025-10-01T00:00:00.000Z",
-  "start": 20,
-  "minute": 1,
-  "discount": 10,
-  "penalty": 15
+    "fee_id": 3,
+    "updated": "2026-01-14T09:19:49.000Z",
+    "start": 200,
+    "minute": 1,
+    "discount": 10,
+    "penalty": 20
 }
 ```
+
 Update one or more prices:
+
 >POST /fees
+
+Requires an admin token.
 
 Required parameters:
 
->fee_id<br>
-start<br>
+>start<br>
 minute<br>
 discount<br>
 penalty
 
-JWT token
-
->Optional parameters:
-start
-minute
-discount
-penalty
 
 ```javascript
 const token = localStorage.getItem('token');
 const fees = {
-    "start": 21,
-    "minute": 2,
-    "discount": 3,
-    "penalty": 9
+    "start": 20,
+    "minute": 1,
+    "discount": 10,
+    "penalty": 15
 }
 const response = await fetch('/api/v1/fees', {
   method: 'POST',
@@ -102,8 +120,8 @@ const response = await fetch('/api/v1/fees', {
 const result = await response.json();
 ```
 
-
 Result:
+
 ```json
 {
     "success": true,
