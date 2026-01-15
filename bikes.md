@@ -14,6 +14,7 @@ status<br>
 coordinates<br>
 
 Fetch all bikes:
+
 >GET /bikes
 
 Requires admin token.
@@ -30,7 +31,9 @@ const response = await fetch('/api/v1/bikes', {
 });
 const result = await response.json();
 ```
+
 Result:
+
 ```json
 [
     {
@@ -115,6 +118,7 @@ Result:
     "zone_type": "city"
 }
 ```
+
 Fetch all bikes belonging to a city:
 
 Requires admin token.
@@ -133,6 +137,7 @@ const response = await fetch('/api/v1/bikes?city=malmö', {
 });
 const result = await response.json();
 ```
+
 Result:
 
 ```json
@@ -202,6 +207,7 @@ const response = await fetch('/api/v1/bikes?city=karlskrona&zone_type=charging',
 });
 const result = await response.json();
 ```
+
 Result:
 
 ```json
@@ -286,6 +292,7 @@ Fetch all bikes filtered on city and status:
 Third parties and customers may filter on status available, all other filters require an admin token.
 
 >GET /bikes?city=\<city>&status=\<status>
+
 ```javascript
 const token = localStorage.getItem('token');
 
@@ -298,6 +305,7 @@ const response = await fetch('/api/v1/bikes?city=umeå&status=available', {
 });
 const result = await response.json();
 ```
+
 Result:
 
 ```json
@@ -357,6 +365,7 @@ Result:
     },
 ...]
 ```
+
 Update bike status:
 
 >PUT /bikes/:id
