@@ -1,7 +1,11 @@
 # REST API for spark - a system for escooter rentals
 
 This API was constructed as a part of a team project for the course "vteam" given at Blekinge Tekniska Högskola.
-Its endpoints require authentication in the form of a valid JWT (Json Web Token) with different levels authorization built into it.
+
+The project - a system for e-scooter rentals - can be viewed on GitHub: [spark](https://github.com/lohengrin1337/spark
+)
+
+The API endpoints require authentication in the form of a valid JWT (Json Web Token) with different levels authorization built into it.
 
 Admin tokens give full access to the API while customer tokens allows access to a more limited number of endpoints and also requires the user id encoded into the token to match the user id of the requested data. (A customer may never access user information belonging to another customer.) Third party applications and vehicles are also authenticated with tokens and may access a few select endpoints. A rate limiter is applied to all individual requests/tokens to avoid any abuse or attacks which may slow down or harm the system.
 
