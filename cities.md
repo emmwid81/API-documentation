@@ -1,4 +1,4 @@
-# 3. Cities
+# 3. Cities endpoint
 City data that can be fetched from the database:
 
 name
