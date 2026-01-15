@@ -16,7 +16,8 @@ coordinates<br>
 Fetch all bikes:
 >GET /bikes
 
-required role - admin
+Requires admin token.
+
 ```javascript
 const token = localStorage.getItem('token');
 
@@ -32,35 +33,53 @@ const result = await response.json();
 Result:
 ```json
 [
-  {
-    "bike_id": 1,
-    "city": "Malmö",
-    "status": "available",
-    "coordinates": {
-      "type": "Point",
-      "coordinates": [12.9934357385279, 55.5988598345591]
-    }
-  },
-  {
-    "bike_id": 2,
-    "city": "Malmö",
-    "status": "available",
-    "coordinates": {
-      "type": "Point",
-      "coordinates": [13.0194197442235, 55.589708405639]
-    }
-  },
-  {
-    "bike_id": 3,
-    "city": "Umeå",
-    "status": "available",
-    "coordinates": {
-      "type": "Point",
-      "coordinates": [20.2635805260072, 63.8279411983368]
-    }
-  },
+    {
+        "bike_id": 1,
+        "city": "Malmö",
+        "status": "needCharging",
+        "coordinates": {
+            "type": "Point",
+            "coordinates": [
+                13.0040145,
+                55.6090932
+            ]
+        },
+        "zones": [
+            {
+                "zone_id": 1,
+                "zone_type": "city"
+            },
+            {
+                "zone_id": 2,
+                "zone_type": "slow"
+            }
+        ]
+    },
+    {
+        "bike_id": 2,
+        "city": "Malmö",
+        "status": "active",
+        "coordinates": {
+            "type": "Point",
+            "coordinates": [
+                12.99335,
+                55.6058207
+            ]
+        },
+        "zones": [
+            {
+                "zone_id": 1,
+                "zone_type": "city"
+            },
+            {
+                "zone_id": 2,
+                "zone_type": "slow"
+            }
+        ]
+    },
   ... ]
 ```
+
 Fetch one bike by id:
 
 > GET /bikes/:id
@@ -77,22 +96,31 @@ const response = await fetch('/api/v1/bikes/5', {
 });
 const result = await response.json();
 ```
+
 Result:
+
 ```json
 {
-  "bike_id": 5,
-  "city": "Karlskrona",
-  "status": "available",
-  "coordinates": {
-    "type": "Point",
-    "coordinates": [15.5870524372859, 56.164706761868]
-  }
+    "bike_id": 5,
+    "city": "Malmö",
+    "status": "deleted",
+    "coordinates": {
+        "type": "Point",
+        "coordinates": [
+            13.0261374,
+            55.6070085
+        ]
+    },
+    "zone_id": 1,
+    "zone_type": "city"
 }
 ```
 Fetch all bikes belonging to a city:
 
-Required role = admin
+Requires admin token.
+
 >GET /bikes?city=\<city>
+
 ```javascript
 const token = localStorage.getItem('token');
 
@@ -110,36 +138,58 @@ Result:
 ```json
 [
     {
-        "bike_id": 1,
+        "bike_id": 3,
         "city": "Malmö",
-        "status": "available",
+        "status": "needCharging",
         "coordinates": {
             "type": "Point",
             "coordinates": [
-                12.993435738527893,
-                55.59885983455905
+                12.9972124,
+                55.5979654
             ]
-        }
+        },
+        "zones": [
+            {
+                "zone_id": 1,
+                "zone_type": "city"
+            },
+            {
+                "zone_id": 2,
+                "zone_type": "slow"
+            }
+        ]
     },
     {
-        "bike_id": 2,
+        "bike_id": 4,
         "city": "Malmö",
-        "status": "available",
+        "status": "needCharging",
         "coordinates": {
             "type": "Point",
             "coordinates": [
-                13.01941974422354,
-                55.589708405639016
+                13.0310297,
+                55.5998566
             ]
-        }
-    }
-]
+        },
+        "zones": [
+            {
+                "zone_id": 1,
+                "zone_type": "city"
+            },
+            {
+                "zone_id": 2,
+                "zone_type": "slow"
+            }
+        ]
+    },
+...]
 ```
+
 Fetch all bikes filtered on city and zone type:
 
 Requires admin token.
 
 >GET /bikes?city=\<city>&zone_type=\<zone type>
+
 ```javascript
 const token = localStorage.getItem('token');
 
@@ -157,42 +207,78 @@ Result:
 ```json
 [
     {
-        "bike_id": 10,
+        "bike_id": 1505,
         "city": "Karlskrona",
-        "status": "available",
+        "status": "charging",
         "coordinates": {
             "type": "Point",
             "coordinates": [
-                15.586608317417614,
-                56.16304825991281
+                15.585025499346187,
+                56.166004837144186
             ]
-        }
+        },
+        "zones": [
+            {
+                "zone_id": 48,
+                "zone_type": "charging"
+            }
+        ]
     },
     {
-        "bike_id": 7,
+        "bike_id": 1566,
         "city": "Karlskrona",
-        "status": "available",
+        "status": "charging",
         "coordinates": {
             "type": "Point",
             "coordinates": [
-                15.587383484926846,
-                56.15855777145583
+                15.587385940998042,
+                56.15851613289694
             ]
-        }
+        },
+        "zones": [
+            {
+                "zone_id": 46,
+                "zone_type": "charging"
+            }
+        ]
     },
     {
-        "bike_id": 9,
+        "bike_id": 1567,
         "city": "Karlskrona",
-        "status": "available",
+        "status": "charging",
         "coordinates": {
             "type": "Point",
             "coordinates": [
-                15.577400068720209,
-                56.16071057591654
+                15.587374915908704,
+                56.15855634665777
             ]
-        }
-    }
-]
+        },
+        "zones": [
+            {
+                "zone_id": 46,
+                "zone_type": "charging"
+            }
+        ]
+    },
+    {
+        "bike_id": 1568,
+        "city": "Karlskrona",
+        "status": "charging",
+        "coordinates": {
+            "type": "Point",
+            "coordinates": [
+                15.587381155396795,
+                56.15853145354702
+            ]
+        },
+        "zones": [
+            {
+                "zone_id": 46,
+                "zone_type": "charging"
+            }
+        ]
+    },
+...]
 ```
 
 Fetch all bikes filtered on city and status:
@@ -213,40 +299,71 @@ const response = await fetch('/api/v1/bikes?city=umeå&status=available', {
 const result = await response.json();
 ```
 Result:
+
 ```json
 [
+[
     {
-        "bike_id": 3,
+        "bike_id": 1026,
         "city": "Umeå",
         "status": "available",
         "coordinates": {
             "type": "Point",
             "coordinates": [
-                20.26358052600719,
-                63.82794119833679
+                20.260739715844622,
+                63.827344171716085
             ]
-        }
+        },
+        "zones": [
+            {
+                "zone_id": 50,
+                "zone_type": "city"
+            },
+            {
+                "zone_id": 51,
+                "zone_type": "slow"
+            },
+            {
+                "zone_id": 52,
+                "zone_type": "parking"
+            }
+        ]
     },
     {
-        "bike_id": 4,
+        "bike_id": 1027,
         "city": "Umeå",
         "status": "available",
         "coordinates": {
             "type": "Point",
             "coordinates": [
-                20.284274306407553,
-                63.820879840740304
+                20.2607516078436,
+                63.827322307867284
             ]
-        }
-    }
-]
+        },
+        "zones": [
+            {
+                "zone_id": 50,
+                "zone_type": "city"
+            },
+            {
+                "zone_id": 51,
+                "zone_type": "slow"
+            },
+            {
+                "zone_id": 52,
+                "zone_type": "parking"
+            }
+        ]
+    },
+...]
 ```
 Update bike status:
+
 >PUT /bikes/:id
 
 Required parameters:
+
 >bike_id<br>
-JWT token
 
 ```javascript
 const bike = { status: "deleted" };
@@ -259,7 +376,9 @@ const response = await fetch(`/api/v1/bikes/:id`, {
     body: JSON.stringify(bike)
     });
 ```
+
 Result:
+
 ```json
 {
     "success": true,

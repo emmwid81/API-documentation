@@ -1,3 +1,4 @@
+# Authentication
 
 ## 1. Auth endpoint
 
@@ -29,7 +30,7 @@ const result = await response.json();
 Result:
 ```json
 {
-    "Token": <JWT with user info>
+    "token": <JWT with user info>
 }
 
 ```
@@ -54,7 +55,7 @@ const result = await response.json();
 Result:
 ```json
 {
-    "Token": <JWT with user info>
+    "token": <JWT with user info>
 }
 
 ```
@@ -80,7 +81,7 @@ const result = await response.json();
 Result:
 ```json
 {
-    "Token": <JWT with user info>
+    "token": <JWT with user info>
 }
 
 ```
@@ -107,7 +108,7 @@ const result = await response.json();
 Result:
 ```json
 {
-    "Token": <JWT with user info>
+    "token": <JWT with user info>
 }
 
 ```

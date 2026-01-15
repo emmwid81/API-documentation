@@ -19,6 +19,7 @@ const response = await fetch('http://localhost:3000/api/v1/cities', {
 });
 const result = await response.json();
 ```
+
 Result:
 
 ```json
@@ -34,8 +35,8 @@ Result:
   }
 ]
 ```
-Fetch one city:
 
+Fetch one city:
 
 >GET /cities/:name
 
@@ -51,6 +52,7 @@ const response = await fetch('http://localhost:3000/api/v1/cities/malmö', {
 });
 const result = await response.json();
 ```
+
 Result:
 
 ```json
