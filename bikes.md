@@ -293,6 +293,7 @@ Third parties and customers may filter on status available, all other filters re
 
 >GET /bikes?city=\<city>&status=\<status>
 
+
 ```javascript
 const token = localStorage.getItem('token');
 

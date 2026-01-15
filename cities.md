@@ -1,7 +1,7 @@
 # 3. Cities endpoint
 City data that can be fetched from the database:
 
-name
+>name
 
 Fetch all cities:
 
