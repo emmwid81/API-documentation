@@ -33,6 +33,7 @@ const result = await response.json();
 ```
 
 Result:
+
 ```json
 [
   {
